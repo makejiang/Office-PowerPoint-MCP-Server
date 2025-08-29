@@ -11,7 +11,6 @@ import utils.template_utils as template_utils
 def register_template_tools(app: FastMCP, presentations: Dict, get_current_presentation_id):
     """Register template-based tools with the FastMCP app"""
     
-    @app.tool()
     def list_slide_templates() -> Dict:
         """List all available slide layout templates."""
         try:
@@ -29,7 +28,6 @@ def register_template_tools(app: FastMCP, presentations: Dict, get_current_prese
                 "error": f"Failed to list templates: {str(e)}"
             }
     
-    @app.tool()
     def apply_slide_template(
         slide_index: int,
         template_id: str,
@@ -88,7 +86,6 @@ def register_template_tools(app: FastMCP, presentations: Dict, get_current_prese
                 "error": f"Failed to apply template: {str(e)}"
             }
     
-    @app.tool()
     def create_slide_from_template(
         template_id: str,
         color_scheme: str = "modern_blue",
@@ -151,7 +148,6 @@ def register_template_tools(app: FastMCP, presentations: Dict, get_current_prese
                 "error": f"Failed to create slide from template: {str(e)}"
             }
     
-    @app.tool()
     def create_presentation_from_templates(
         template_sequence: List[Dict[str, Any]],
         color_scheme: str = "modern_blue",
@@ -236,7 +232,6 @@ def register_template_tools(app: FastMCP, presentations: Dict, get_current_prese
                 "error": f"Failed to create presentation from templates: {str(e)}"
             }
     
-    @app.tool()
     def get_template_info(template_id: str) -> Dict:
         """
         Get detailed information about a specific template.
@@ -286,7 +281,6 @@ def register_template_tools(app: FastMCP, presentations: Dict, get_current_prese
                 "error": f"Failed to get template info: {str(e)}"
             }
     
-    @app.tool()
     def auto_generate_presentation(
         topic: str,
         slide_count: int = 5,
@@ -400,7 +394,6 @@ def register_template_tools(app: FastMCP, presentations: Dict, get_current_prese
     # Text optimization tools
     
     
-    @app.tool()
     def optimize_slide_text(
         slide_index: int,
         auto_resize: bool = True,
