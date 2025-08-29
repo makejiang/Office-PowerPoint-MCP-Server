@@ -31,7 +31,6 @@ def register_presentation_tools(app: FastMCP, presentations: Dict, get_current_p
             "slide_count": len(pres.slides)
         }
 
-    @app.tool()
     def create_presentation_from_template(template_path: str, id: Optional[str] = None) -> Dict:
         """Create a new PowerPoint presentation from a template file."""
         # Check if template file exists
@@ -127,7 +126,6 @@ def register_presentation_tools(app: FastMCP, presentations: Dict, get_current_p
                 "error": f"Failed to save presentation: {str(e)}"
             }
 
-    @app.tool()
     def get_presentation_info(presentation_id: Optional[str] = None) -> Dict:
         """Get information about a presentation."""
         pres_id = presentation_id if presentation_id is not None else get_current_presentation_id()
@@ -148,7 +146,6 @@ def register_presentation_tools(app: FastMCP, presentations: Dict, get_current_p
                 "error": f"Failed to get presentation info: {str(e)}"
             }
 
-    @app.tool()
     def get_template_file_info(template_path: str) -> Dict:
         """Get information about a template file including layouts and properties."""
         # Check if template file exists
