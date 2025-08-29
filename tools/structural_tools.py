@@ -123,7 +123,6 @@ def register_structural_tools(app: FastMCP, presentations: Dict, get_current_pre
                 "error": f"Failed to add table: {str(e)}"
             }
 
-    @app.tool()
     def format_table_cell(
         slide_index: int,
         shape_index: int,
@@ -203,7 +202,6 @@ def register_structural_tools(app: FastMCP, presentations: Dict, get_current_pre
                 "error": f"Failed to format table cell: {str(e)}"
             }
 
-    @app.tool()
     def add_shape(
         slide_index: int,
         shape_type: str,
