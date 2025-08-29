@@ -13,7 +13,10 @@ def register_presentation_tools(app: FastMCP, presentations: Dict, get_current_p
     
     @app.tool()
     def create_presentation(id: Optional[str] = None) -> Dict:
-        """Create a new PowerPoint presentation."""
+        """
+        Create a new PowerPoint presentation.
+        Return_code is non-zero if the failure.
+        """
         # Create a new presentation
         pres = ppt_utils.create_presentation()
         
@@ -27,8 +30,9 @@ def register_presentation_tools(app: FastMCP, presentations: Dict, get_current_p
         
         return {
             "presentation_id": id,
-            "message": f"Created new presentation with ID: {id}",
-            "slide_count": len(pres.slides)
+            "message": f"Successfully created new presentation with ID: {id}",
+            "slide_count": len(pres.slides),
+            "return_code": 0
         }
 
     @app.tool()
